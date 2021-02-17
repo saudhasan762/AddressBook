@@ -1,10 +1,7 @@
 import java.util.Iterator;
-import java.util.ArrayList;
 import java.util.Scanner;
-public class AddressBook {
+public class AddressBook implements Compute {
 	Scanner scan =new Scanner(System.in);
-	public static ArrayList<Contact> list = new ArrayList<>();
-	private static int numOfPerson = 0;
 	
 	public void view() {
 		if (list.size() == 0) {
@@ -15,6 +12,7 @@ public class AddressBook {
 			while (iter.hasNext()) 
 				System.out.println(iter.next());}
 	}
+	
 	public boolean add(String checkname) {
 		String check=checkname;
 		if (list.size() == 0)
@@ -27,6 +25,7 @@ public class AddressBook {
 		}
 		return true;
 	}
+	
 	public boolean edit(String first, String last, String address, String city, String state,String email, String zip, String phoneNumber ) {
 		if (list.size() == 0)
 			return false;
@@ -56,13 +55,14 @@ public class AddressBook {
 			count++;
 			if (con.getFirstName().equals(first) && con.getLastName().equals(last)) {
 				list.remove(count - 1);
-				System.out.println("Delete successful");
+				System.out.println("Deleted successful");
 				return true;
 			}
 		}
 		System.out.println("This contact number does not exist!!");
 		return true;
 	}
+	
 	
 	int chooseOption() {
 		System.out.println("Enter 1 to add contact");
@@ -73,8 +73,8 @@ public class AddressBook {
 		int n = scan.nextInt();
 		return n;
 	}
-	
 	public static void main(String[] args) {
+		int numOfPerson = 0;
 		System.out.println("! Welcome to Address Book !");
 		AddressBook Book = new AddressBook();
 		boolean flag=true;
@@ -135,7 +135,7 @@ public class AddressBook {
 					if(Book.edit(first,last,address, city,state,zip,phoneNumber,email) == false)	
 						break s2;
 					else
-						System.out.println("Added Successfull");
+						System.out.println("Edited Successfully");
 					break;
 				}
 				else if(choice == 4) {
@@ -158,4 +158,8 @@ public class AddressBook {
 			}	
 		}	
 	}
+
+	
+	
+	
 }
