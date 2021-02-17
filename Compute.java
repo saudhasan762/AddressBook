@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public interface Compute {
 	public static ArrayList<Contact> list = new ArrayList<>();
+	
 	public void view();
 	
 	public boolean add(String checkname);
