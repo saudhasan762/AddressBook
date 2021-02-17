@@ -74,7 +74,7 @@ public class Contact {
 		this.email = email;
 	}
 	public String toString() {
-		return "Contact [Name: " +this.first +"  Surname: " +this.last+ "  address: " +this.address+"  city: " +this.city+ "  State: " +this.state+ "  Zip: " +this.zip+ "  Phone Number: " +this.phoneNumber+ "  email: " +this.email +"]";
+		return "Contact [Name: " +this.first +"  Surname: " +this.last+ "  Address: " +this.address+"  City: " +this.city+ "  State: " +this.state+ "  Zip: " +this.zip+ "  Phone Number: " +this.phoneNumber+ "  Email: " +this.email +"]";
 	}
 	
 
