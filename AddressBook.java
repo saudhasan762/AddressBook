@@ -5,7 +5,7 @@ public class AddressBook {
 	Scanner scan =new Scanner(System.in);
 	public static ArrayList<Contact> list = new ArrayList<>();
 	
-	public void findAll() {
+	public void view() {
 		if (list.size() == 0) {
 			System.out.println("*No student information!!*");
 			return;
@@ -36,14 +36,14 @@ public class AddressBook {
 		int count = 0;
 		for (Contact con : list) {
 			count++;
-			if (con.getFirstName() == first) {
+			if (con.getFirstName().equals(first) && con.getLastName().equals(last)) {
 				con.setAddress(address);
 				con.setcity(city);
 				con.setState(state);
 				con.setzip(zip);
 				con.setphoneNumber(phoneNumber);
 				con.setemail(email);
-				//list.set(count-1, con);
+				list.set(count-1, con);
 				return true;
 			}
 		}
@@ -61,8 +61,8 @@ public class AddressBook {
 		for (Contact con : list) {
 			count++;
 			
-			if (con.getFirstName() == first) {
-				list.remove(count);
+			if (con.getFirstName().equals(first)) {
+				list.remove(count - 1);
 				System.out.println("Delete successful");
 				return true;
 			}
@@ -75,7 +75,8 @@ public class AddressBook {
 		System.out.println("Enter 1 to add contact");
 		System.out.println("Enter 2 to view contact");
 		System.out.println("Enter 3 to edit contact");
-		System.out.println("Enter 4 to edit contact");
+		System.out.println("Enter 4 to delete contact");
+		System.out.println("Enter 0 to Abort");
 		int n = scan.nextInt();
 		return n;
 	}
@@ -113,7 +114,7 @@ public class AddressBook {
 					break;
 				}
 				else if(choice == 2){
-					Book.findAll();
+					Book.view();
 					break;
 				}
 				else if(choice == 3) {
@@ -133,14 +134,14 @@ public class AddressBook {
 					String phoneNumber = new Scanner(System.in).nextLine();
 					System.out.println("Enter email: ");
 					String email = new Scanner(System.in).nextLine();
-					if(Book.edit(first,"","", "","","","","") == false)	
+					if(Book.edit(first,last,address, city,state,zip,phoneNumber,email) == false)	
 						break s2;
 					else
 						System.out.println("Added Successfull");
 					break;
 				}
 				else if(choice == 4) {
-					System.out.println("Enter the first name");
+					System.out.println("Enter first name");
 					String first = new Scanner(System.in).nextLine();
 					if(Book.delete(first) == false) {
 						break s2;
