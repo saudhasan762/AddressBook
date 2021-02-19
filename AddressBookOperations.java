@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 public class AddressBookOperations implements Compute {
+	public static ArrayList<Contact> list = new ArrayList<>();
 	Scanner scan =new Scanner(System.in);
 	
 	public void view() {

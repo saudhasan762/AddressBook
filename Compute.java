@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public interface Compute {
-	public static ArrayList<Contact> list = new ArrayList<>();
 	
 	public void view();
 	

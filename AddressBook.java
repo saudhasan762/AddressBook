@@ -4,7 +4,7 @@ public class Addressbook extends AddressBookOperations {
 	public static void main(String[] args) {
 		int numOfPerson = 0;
 		System.out.println("! Welcome to Address Book !");
-		AddressBookOperations Book = new AddressBookOperations();
+		Addressbook Book = new Addressbook();
 		boolean flag=true;
 		s: while(flag == true) {
 			int choice = Book.chooseOption();
