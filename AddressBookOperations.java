@@ -71,7 +71,8 @@ public class AddressBookOperations implements Compute {
 		System.out.println("Enter 2 to view contact");
 		System.out.println("Enter 3 to edit contact");
 		System.out.println("Enter 4 to delete contact");
-		System.out.println("Enter 0 to abort!");
+		System.out.println("Enter 0 to exit Address Book");
+		System.out.println("Enter 9 to exit System");
 		int n = scan.nextInt();
 		return n;
 	}
