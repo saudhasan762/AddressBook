@@ -1,16 +1,24 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Addressbook extends AddressBookOperations {
+	public static Collection<String> list1 = new LinkedList<>();
 	public static void main(String[] args) {
-
-		System.out.println("Welcome to the Address Book System !");
-		int size = addressBookList();
-		for(int j=1;j<=size;j++) {
-			System.out.println("! Working on AddressBook"+j);			
-			details();
+		
+		System.out.println("! Welcome to the Address Book System !");	
+		addressBookList();
+		Iterator itr = list1.iterator();
+		while(itr.hasNext()) {
+			for(String str : list1) {
+				System.out.println("Working "+itr.next());			
+				details();
+			}
 		}
 	}
 	public static void details() {
@@ -87,6 +95,16 @@ public class Addressbook extends AddressBookOperations {
 					}
 				    break;
 				}
+				else if(choice == 5) {
+					System.out.println("Enter city name");
+					String city = new Scanner(System.in).nextLine();
+					System.out.println("Enter state name: ");
+					String state = new Scanner(System.in).nextLine();
+					if(Book.searchPerson(city,state) == false) {
+						break s2;
+					}
+				    break;
+				}
 				else if(choice == 0) {
 					System.out.println("Address Book Exit");
 					break s;
@@ -100,18 +118,17 @@ public class Addressbook extends AddressBookOperations {
 			}	
 		}
 	}
-	public static int addressBookList() {
+	public static void addressBookList() {
 		System.out.println("List of Address books");
-		List<String> list2 = new LinkedList<>();	
-		list2.add("AddressBook1");
-		list2.add("AddressBook2");
-		list2.add("AddressBook3");
+		Map<Integer, String> map = new HashMap<>();	
+		map.put(1, "Address Book 1");
+		map.put(2, "Address Book 2");
+		map.put(3, "Address Book 3");
 		
-		Iterator itr = list2.iterator();
-		while(itr.hasNext()) {
-			System.out.println(itr.next());
+		for(Map.Entry m : map.entrySet()) {
+			System.out.println(m.getKey()+ " " +m.getValue());
 		}
-		return list2.size();
-	
+		list1 =map.values();
+		
 	}
 }
