@@ -65,13 +65,31 @@ public class AddressBookOperations implements Compute {
 		return true;
 	}
 	
+	public boolean searchPerson(String city, String state) {
+		if(list.size()==0)
+			return false;
+		int count = 0;
+		int num = 0;
+		for(Contact con : list) {
+			count ++;
+			if(con.getcity().equals(city) || con.getState().equals(state)) {
+				System.out.println(con);
+				num++;
+				return true;
+			} 
+			System.out.println("Number of Contacts: "+num);
+		}
+		System.out.println("Contact does not exist");
+		return true;
+	}
 	
 	int chooseOption() {
 		System.out.println("Enter 1 to add contact");
 		System.out.println("Enter 2 to view contact");
 		System.out.println("Enter 3 to edit contact");
 		System.out.println("Enter 4 to delete contact");
-		System.out.println("Enter 0 to exit Address Book");
+		System.out.println("Enter 5 to search contact");
+		System.out.println("Enter 0 to switch to next Address Book");
 		System.out.println("Enter 9 to exit System");
 		int n = scan.nextInt();
 		return n;
