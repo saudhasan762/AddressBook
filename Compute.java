@@ -9,5 +9,7 @@ public interface Compute {
 	public boolean edit(String first, String last, String address, String city, String state,String email, String zip, String phoneNumber );
 	
 	public boolean delete(String first,String last);
+	
+	public boolean searchPerson(String first, String last);
 
 }
