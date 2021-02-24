@@ -1,9 +1,20 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Addressbook extends AddressBookOperations {
 	public static void main(String[] args) {
+
+		System.out.println("Welcome to the Address Book System !");
+		int size = addressBookList();
+		for(int j=1;j<=size;j++) {
+			System.out.println("! Working on AddressBook"+j);			
+			details();
+		}
+	}
+	public static void details() {
 		int numOfPerson = 0;
-		System.out.println("! Welcome to Address Book !");
 		Addressbook Book = new Addressbook();
 		boolean flag=true;
 		s: while(flag == true) {
@@ -77,15 +88,30 @@ public class Addressbook extends AddressBookOperations {
 				    break;
 				}
 				else if(choice == 0) {
-					System.out.println("System Existed");
-					System.exit(0);
+					System.out.println("Address Book Exit");
 					break s;
+				}
+				else if(choice == 9) {
+					System.out.println("System Exit");
+					System.exit(9);
 				}
 				else
 					System.out.println("Invalid choice");	
 			}	
-		}	
+		}
 	}
-
-
+	public static int addressBookList() {
+		System.out.println("List of Address books");
+		List<String> list2 = new LinkedList<>();	
+		list2.add("AddressBook1");
+		list2.add("AddressBook2");
+		list2.add("AddressBook3");
+		
+		Iterator itr = list2.iterator();
+		while(itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+		return list2.size();
+	
+	}
 }
